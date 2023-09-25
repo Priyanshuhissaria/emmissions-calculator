@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { UserInputComponent } from './components/user-input/user-input.component';
+import { CommonModule } from '@angular/common';
+import { PapaParseModule } from 'ngx-papaparse';
 
 
 
@@ -9,7 +10,8 @@ import { UserInputComponent } from './components/user-input/user-input.component
     UserInputComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    PapaParseModule,
   ]
 })
 export class UserInputModule { }

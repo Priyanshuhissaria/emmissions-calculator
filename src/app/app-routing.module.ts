@@ -1,20 +1,19 @@
 import { NgModule, OnInit } from '@angular/core';
-import {RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { UserInputComponent } from './modules/user-input/components/user-input/user-input.component';
 
 const routes: Routes = [
-  { 'path': 'user-input',
-    'component': UserInputComponent,
-  }
+  {path: '', component: UserInputComponent},
+  { path: 'user-input', component: UserInputComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule implements OnInit{ 
+export class AppRoutingModule implements OnInit {
+  constructor() {}
 
-  constructor(){}
-
-  ngOnInit(): void {  } 
+  ngOnInit(): void {}
 }
