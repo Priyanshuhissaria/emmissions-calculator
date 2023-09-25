@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Papa } from 'ngx-papaparse';
+import { InputDataEntry } from '../../constants/user-input.constant';
 
 @Injectable({
   providedIn: 'root',
@@ -14,20 +15,31 @@ export class UserInputServiceService {
     });
   };
 
-  public convertCsvToJson = (file: any) => {
-    console.log("inside service");
+  public convertCsvToJson = (file: File): InputDataEntry[] => {
+    const uploadedData: InputDataEntry[] = [];
     this.papa.parse(file, {
       complete: (result) => {
         console.log('Parsed: ', result);
+        for(let i=1; i<result.data.length; i++){
+          const element = result.data[i];
+          const entry: InputDataEntry = {
+            coalConsumption: element[0],
+            bioMass: element[1],
+            electricityConsumption: element[2],
+            incomingRoadLogistics: element[3],
+            outgoingRoadLogistics: element[4],
+            month: element[5],
+            year: element[6],
+          };
+          uploadedData.push(entry);
+        };
+        this.uploadDataToLocalStorage(uploadedData);
       },
     });
+    return uploadedData;
   };
-  private getHeaderArray(csvRecordsArr: any) {
-    let headers = (<string>csvRecordsArr[0]).split(',');
-    let headerArray = [];
-    for (let j = 0; j < headers.length; j++) {
-      headerArray.push(headers[j]);
-    }
-    return headerArray;
-  }
-}
+
+  public uploadDataToLocalStorage = (data: InputDataEntry[]):void =>{
+    localStorage.setItem('emmission-calculator-data', JSON.stringify(data));
+  };
+};

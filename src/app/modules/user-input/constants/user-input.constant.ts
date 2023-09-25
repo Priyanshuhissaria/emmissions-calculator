@@ -1,4 +1,4 @@
-export interface inputDataEntry{ 
+export interface InputDataEntry{ 
     coalConsumption: number;
     bioMass: number;
     electricityConsumption: number;
@@ -7,3 +7,4 @@ export interface inputDataEntry{
     month: string;
     year: number;
 };
+
