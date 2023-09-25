@@ -1,4 +1,9 @@
-export const TABLE_METADATA = [
+import {InputDataEntry} from '../../user-input/constants/user-input.constant'
+export interface MetaInterface{
+    label: string;
+    key: keyof InputDataEntry;
+}
+export const TABLE_METADATA : MetaInterface[]= [
     {
         label: 'Coal consumption',
         key: 'coalConsumption',

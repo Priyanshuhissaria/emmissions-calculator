@@ -10,7 +10,7 @@ import { TABLE_METADATA } from '../../Constants/uploaded-list.constant';
 })
 export class UploadedDataListComponent implements OnInit {
   constructor(private uploadedListService: UploadedListService) {}
-  public uploadedList: any[] = [];
+  public uploadedList: InputDataEntry[] = [];
   public tableMetaData = TABLE_METADATA;
 
   ngOnInit(): void {
