@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { UserInputServiceService } from '../../services/user-input-service/user-input-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-input',
@@ -9,7 +10,7 @@ import { UserInputServiceService } from '../../services/user-input-service/user-
 })
 export class UserInputComponent implements OnInit {
   public userInputForm: FormGroup = new FormGroup({});
-  constructor(private userInputServiceService: UserInputServiceService) {}
+  constructor(private userInputServiceService: UserInputServiceService, private router: Router) {}
 
   ngOnInit(): void {
     this.buildForm();
@@ -36,6 +37,7 @@ export class UserInputComponent implements OnInit {
 
   public onSubmitBtnClick = (): void => {
     this.userInputServiceService.convertCsvToJson(this.userInputForm.controls['uploadedFile'].value);
+    this.router.navigateByUrl('/dashboard');
   };
 
   private checkFileType = (file: File):boolean =>{

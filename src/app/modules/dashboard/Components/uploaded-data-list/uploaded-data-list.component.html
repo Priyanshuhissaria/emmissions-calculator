@@ -1,0 +1,19 @@
+<table class="table">
+    <thead>
+    <th *ngFor="let head of tableMetaData">{{head.label}}</th>
+    </thead>
+    <tbody *ngIf="uploadedList.length; else noData">
+        <tr *ngFor = "let row of uploadedList">
+            <td *ngFor = "let col of tableMetaData">
+                {{row[col.key]}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+<ng-template #noData>
+    <tr>
+        <td [attr.colspan] = "tableMetaData.length"> 
+            <div class="no-data">No Data Avalilable</div>
+        </td>
+    </tr>
+</ng-template>

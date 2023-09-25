@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { UserInputComponent } from './components/user-input/user-input.component';
 import { CommonModule } from '@angular/common';
 import { PapaParseModule } from 'ngx-papaparse';
+import { Router, RouterModule } from '@angular/router';
 
 
 
@@ -12,6 +13,7 @@ import { PapaParseModule } from 'ngx-papaparse';
   imports: [
     CommonModule,
     PapaParseModule,
+    RouterModule
   ]
 })
 export class UserInputModule { }

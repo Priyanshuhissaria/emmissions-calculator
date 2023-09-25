@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PapaParseModule } from 'ngx-papaparse';
 import { UserInputModule } from './modules/user-input/user-input.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { UserInputModule } from './modules/user-input/user-input.module';
     AppRoutingModule,
     PapaParseModule,
     UserInputModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
