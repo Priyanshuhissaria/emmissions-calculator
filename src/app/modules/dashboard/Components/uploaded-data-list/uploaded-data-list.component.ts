@@ -20,6 +20,6 @@ export class UploadedDataListComponent implements OnInit {
   private getUploadedList = () => {
     setTimeout(() => {
       this.uploadedList = this.uploadedListService.getUploadedList();
-    }, 3000);
+    }, 1000);
   };
 }
